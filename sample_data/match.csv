@@ -1,0 +1,2 @@
+Peptide,Glycan,Glycan ID,Glycan Type,Adduct,Adduct Mass,Isotopic Shift,-10LgP,Glycan Score,Peptide Score,Glycan Rank,S-Score (%),Mass,Glycan Mass,Length,ppm,m/z,z,RT,Area,Scan,Source File,Accession,Glycosylation position,Feature id,PTM,AScore
+NN(+2350.83)VTEIQGIPGAASGLIK,(HexNAc)4(Hex)5(Fuc)1(NeuAc)2,1077,NLink,,0,0,41.32,49.8,32.85,0,18.64,4131.7969,2350.8284,18,2,1378.27551,3,179.253,1.04E+07,39012,MouseBrain-Z-T-1.raw,Q91V14|S12A5_MOUSE,2,143021,(HexNAc)4(Hex)5(Fuc)1(NeuAc)2_1077:0,N2:(HexNAc)4(Hex)5(Fuc)1(NeuAc)2_1077:0:0.00
