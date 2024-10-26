@@ -44,7 +44,7 @@ match_peaks.ipynb
 
 
 
-### 参考
+### Reference
 
 <div id="refer-anchor-1"></div>
 - [1] Sun W, Zhang Q, Zhang X, et al. Glycopeptide database search and de novo sequencing with PEAKS GlycanFinder enable highly sensitive glycoproteomics[J]. Nature Communications, 2023, 14(1): 4046.  
