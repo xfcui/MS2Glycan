@@ -16,6 +16,7 @@ MS2Glycan is based on the framework and training principles of GlycanFinder[<sup
 The five mouse datasets were downloaded from the PRIDE repository with accession numbers: PXD005411 (mouse brain), PXD005412 (mouse kidney), PXD005413 (mouse heart), PXD005553 (mouse liver), PXD005555 (mouse lung). 
 
 #### Run
+**This repository provides example data ,model parameters (lung for testing) and one-click code execution.**  
 
 Clone this repository by:
 ```shell
@@ -26,13 +27,14 @@ Make sure the python version you use is >= 3.7, and install the packages by:
 ```shell
 bash install.sh
 ```
-**This repository provides example data and one-click code execution.**  
+
 Train the model:
+**If you are training with your own dataset, you need to provide a glycan library in GlycoCT format and use create_combination function to generate the combination.pkl file.**
 ```shell
 python train.py
 ```
 
-Evaluate the framework
+Evaluate the framework:
 ```shell
 python inference.py
 ```

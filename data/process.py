@@ -832,3 +832,25 @@ class GlycanDBCSV(DGLDataset):
 
     def __len__(self):
         return len(self.graphs)
+
+
+def create_combination(args,glycan_dir):
+    with open(glycan_dir, 'rb') as f:
+        glycan_dict = pickle.load(f)
+
+    combination = []
+    for glycan_id in list(glycan_dict.keys()):  
+        glycan = glycan_dict[glycan_id]['GLYCAN'].clone()
+        sugar_classes_name = ['Fuc', 'Man', 'GlcNAc', 'NeuAc', 'NeuGc']
+        sugar_classes = [glypy.monosaccharides[name].mass()-mass_free_reducing_end for name in sugar_classes_name]    
+
+        glycan = glypy_glycoct.loads(glycan.serialize()).reindex(method='bfs')
+        tree_glycopsm_list, labels, left_comps,site_list = cut2trees(glycan, sugar_classes)
+
+        for idx, tree in enumerate(tree_glycopsm_list[:-1]):
+            unordered_label = labels[idx].tolist()
+            if  unordered_label not in combination:
+                combination.append(unordered_label)
+
+    with open(glycan_dir.split('.pkl')[0] + "combination.pkl", 'wb') as f:
+        pickle.dump(combination, f)
