@@ -112,13 +112,14 @@ class GraphormerIonCNN(nn.Module):
             encoder_embed_dim=args.encoder_embed_dim,
             ion_mass=ion_mass, 
             sugar_classes=sugar_classes)
+        self.weight= torch.nn.Parameter(torch.FloatTensor(1), requires_grad=True)
         self.embed_out = nn.Linear(
             2*args.encoder_embed_dim, args.num_classes, bias=False)
 
     def forward(self, batched_data):
         out = self.ionCNN(batched_data)
         graph_embed, _,siteprediction= self.graph_embedding(batched_data)
-        combined = torch.cat((graph_embed, out), dim=1)
+        combined = torch.cat((graph_embed, out*self.weight), dim=1)
         out = self.embed_out(combined)
 
         return out,siteprediction
