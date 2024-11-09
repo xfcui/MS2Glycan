@@ -27,6 +27,10 @@ Make sure the python version you use is >= 3.7, and install the packages by:
 ```shell
 bash install.sh
 ```
+Notes
+* fairseq requires a pip version lower than 24.1
+* Make sure the LD_LIBRARY_PATH includes the CUDA path  
+export LD_LIBRARY_PATH=/\~/envs/\~/lib/python3.9/site-packages/nvidia/cuda_nvrtc/lib:$LD_LIBRARY_PATH
 
 Train the model:
 **If you are training with your own dataset, you need to provide a glycan library in GlycoCT format and use create_combination function to generate the combination.pkl file.**
