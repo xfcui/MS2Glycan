@@ -185,11 +185,11 @@ if __name__ == '__main__':
 
     graphormer_model = GraphormerModel(args)
     if os.path.exists(args.graph_model):
-        graphormer_model.load_state_dict(torch.load(args.graph_model),strict=False)
+        graphormer_model.load_state_dict(torch.load(args.graph_model,map_location=device),strict=False)
     graphormer_model.to(device)
     model = GraphormerIonCNN(args, ion_mass, sugar_classes, graphormer_model)
     if os.path.exists(args.cnn_model):
-        model.load_state_dict(torch.load(args.cnn_model),strict=False)
+        model.load_state_dict(torch.load(args.cnn_model,map_location=device),strict=False)
     model.to(device)
 
     create_all_glycan(args.glycan_db)

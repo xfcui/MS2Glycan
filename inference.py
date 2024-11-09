@@ -154,10 +154,10 @@ if __name__ == '__main__':
 
     ion_mass = find_submass(combination, sugar_classes)
     graphormer_model = GraphormerModel(args)
-    graphormer_model.load_state_dict(torch.load(args.graph_model),strict=False)
+    graphormer_model.load_state_dict(torch.load(args.graph_model,map_location=device),strict=False)
     graphormer_model.to(device)
     model = GraphormerIonCNN(args, ion_mass, sugar_classes, graphormer_model)
-    model.load_state_dict(torch.load(args.cnn_model),strict=False)
+    model.load_state_dict(torch.load(args.cnn_model,map_location=device),strict=False)
     model.to(device)
 
     dataset_dict = GlycanCSV(args,ion_mass,combination)

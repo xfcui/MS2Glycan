@@ -7,3 +7,4 @@ pip install fairseq
 pip install glypy
 pip install torch-geometric
 pip install matplotlib
+pip install notebook
