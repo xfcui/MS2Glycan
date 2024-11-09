@@ -9,7 +9,7 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader, Subset
 
 import warnings
-warnings.filterwarnings("ignore")
+warnings.simplefilter('ignore')
 
 from data.process import GlycanCSV, GraphormerDGLDataset, preprocess_dgl_graph, find_submass, collator, test_glycan_accuracy, graph2glycan
 from modules import GraphormerGraphEncoder
@@ -132,7 +132,7 @@ def generate_new_graph(parent_node, nodes_onehot, graph):
     graph_feature = torch.cat((graph_feature, onehot_newfeature), dim=0).to(torch.int32)
     # print(graph_feature)
     for i in range(num_new_node):
-        graph.add_edge([parent_node], [num_node+i])
+        graph.add_edges([parent_node], [num_node+i])
     graph.ndata['x'] = torch.tensor(graph_feature)
     graph.ndata['x'][:, 5] = 0
 

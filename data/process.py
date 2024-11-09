@@ -8,6 +8,8 @@ import pickle
 import itertools
 import collections
 import numpy as np
+import warnings
+warnings.simplefilter('ignore')
 
 from dgl import DGLGraph
 from dgl.data import DGLDataset
@@ -441,8 +443,11 @@ def test_glycan_accuracy(target_glycans, predict_glycans, csvfile):
             predict_b_set, predict_y_set = get_b_y_set(candidate, resolution) if candidate else (set(), set())
             correct_y_set = target_y_set.intersection(predict_y_set)  
 
-            correct_glycan = 1 if topological_equality(candidate.root,target_glycan.root) else 0 
-
+            if candidate != None:
+                correct_glycan = 1 if topological_equality(candidate.root,target_glycan.root) else 0 
+            else:
+                correct_glycan = 0
+                
             num_predict_y += len(predict_y_set)                   
             num_correct_y += len(correct_y_set)                   
             num_correct_glycans += correct_glycan                 
