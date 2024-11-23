@@ -9,7 +9,7 @@ from tqdm import tqdm
 from torch.utils.data import DataLoader, Subset
 
 import warnings
-warnings.simplefilter('ignore')
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 from data.process import GlycanCSV, GraphormerDGLDataset, preprocess_dgl_graph, find_submass, collator, test_glycan_accuracy, graph2glycan
 from modules import GraphormerGraphEncoder
