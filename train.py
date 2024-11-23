@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader, Subset
 from sklearn.model_selection import train_test_split
 
 import warnings
-warnings.simplefilter('ignore')
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 from data.process import  GlycanDBCSV, GraphormerDGLDataset, find_submass, collator, create_all_glycan
 from modules import GraphormerGraphEncoder
