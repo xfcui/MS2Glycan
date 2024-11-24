@@ -13,7 +13,7 @@ We introduce MS2Glycan, a deep learning method for iteratively generating novel 
 
 MS2Glycan is based on the framework and training principles of GlycanFinder[<sup>1</sup>](#refer-anchor-1), utilizing data from five types of mouse tissues proposed by pGlyco 2.0[<sup>2</sup>](#refer-anchor-2). It employs a five-fold cross-validation approach, where four tissues are used for training and one tissue is used for prediction.  
 The five mouse datasets were downloaded from the PRIDE repository with accession numbers: PXD005411 (mouse brain), PXD005412 (mouse kidney), PXD005413 (mouse heart), PXD005553 (mouse liver), PXD005555 (mouse lung).  
-**Note that our model uses mass spectrometry data processed and identified by the PEAKS Studio[<sup>3</sup>](#refer-anchor-3) software, rather than the raw mass spectrometry data from pGlyco 2.0.**
+**Note that our model uses mass spectrometry data processed and identified by the PEAKS Studio[<sup>3</sup>](#refer-anchor-3) software, rather than the raw mass spectrometry data from pGlyco 2.0. The experimental data was shared with me by the authors of Glycanfinder, so it cannot be publicly released. If you wish to replicate the results of this experiment, please contact the authors of Glycanfinder directly or use Peaks Studio for data processing.**
 
 #### Run
 **This repository provides example data ,model parameters (lung for testing) and one-click code execution.**  
